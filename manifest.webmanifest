@@ -1,0 +1,10 @@
+{
+  "name": "TARIKH — История Казахстана",
+  "short_name": "TARIKH",
+  "description": "Образовательный проект об истории Казахстана на русском, казахском и английском языках.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101820",
+  "theme_color": "#101820",
+  "lang": "ru"
+}

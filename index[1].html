@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101820">
+<link rel="manifest" href="./manifest.webmanifest">
+<title>TARIKH — История Казахстана</title>
+<style>
+:root{--bg:#101820;--panel:#182630;--panel2:#20333e;--gold:#d8ad62;--cream:#f3ead8;--muted:#aab7b8;--line:#344650;--teal:#6d9b91}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#263c43 0,transparent 30%),var(--bg);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 6vw;position:sticky;top:0;background:#101820ed;backdrop-filter:blur(12px);z-index:5}
+.logo{font-family:Georgia,serif;font-size:27px;letter-spacing:4px;color:var(--gold);font-weight:bold}.logo small{font:10px system-ui;letter-spacing:2px;color:var(--muted);display:block;margin-top:-3px}
+nav{display:flex;gap:25px}nav a{color:var(--muted);text-decoration:none;font-size:14px}nav a:hover{color:var(--gold)}
+.controls{display:flex;gap:10px;align-items:center}select,.search{background:var(--panel);border:1px solid var(--line);color:var(--cream);padding:10px 12px;border-radius:9px}
+main{max-width:1180px;margin:auto;padding:48px 28px 80px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:35px;align-items:center;padding:45px 0 55px}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:700}
+h1{font:clamp(42px,6vw,72px)/1.04 Georgia,serif;margin:18px 0 20px;max-width:700px}.hero p{font-size:17px;line-height:1.7;color:var(--muted);max-width:620px}
+.actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn{padding:13px 19px;border-radius:9px;text-decoration:none;font-weight:650;font-size:14px;border:1px solid var(--gold);cursor:pointer}.primary{background:var(--gold);color:#17212a}.secondary{color:var(--cream);background:transparent}
+.art{min-height:300px;border:1px solid #52616a;border-radius:18px;background:linear-gradient(145deg,#30454a,#172630 65%);position:relative;overflow:hidden;display:grid;place-items:center}
+.art:before,.art:after{content:"";position:absolute;border:1px solid #d8ad6255;transform:rotate(45deg);width:230px;height:230px}.art:after{width:165px;height:165px}
+.compass{font:100px Georgia;color:var(--gold);z-index:1;text-shadow:0 8px 35px #0008}.art-label{position:absolute;bottom:20px;letter-spacing:3px;font-size:10px;color:#d8c39d}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin:20px 0 22px}.section-head h2{font:32px Georgia;margin:0}.section-head span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(150deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:22px;min-height:174px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#a88754}
+.num{font:13px Georgia;color:var(--gold);letter-spacing:2px}.card h3{font:22px Georgia;margin:15px 0 9px}.card p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}.card button{margin-top:17px;background:none;border:0;color:var(--gold);padding:0;cursor:pointer;font-weight:650}
+.feature{margin-top:55px;padding:28px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(110deg,#253a41,#182630);display:flex;justify-content:space-between;gap:20px;align-items:center}.feature h2{font:28px Georgia;margin:8px 0}.feature p{color:var(--muted);margin:0;line-height:1.6}.feature .btn{white-space:nowrap}
+footer{border-top:1px solid var(--line);padding:25px 6vw;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}
+#notice{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#263b43;border:1px solid var(--gold);border-radius:10px;padding:13px 18px;display:none;box-shadow:0 8px 35px #0008;z-index:10}
+@media(max-width:760px){header{padding:0 18px}nav{display:none}main{padding:30px 18px 55px}.hero{grid-template-columns:1fr;padding:25px 0 40px}.art{min-height:220px}.grid{grid-template-columns:1fr}.feature{display:block}.feature .btn{display:inline-block;margin-top:20px}footer{display:block;line-height:2}}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">TARIKH<small>HISTORY OF KAZAKHSTAN</small></div>
+ <nav><a href="#topics" data-i="navTopics">Разделы</a><a href="#about" data-i="navAbout">О проекте</a><a href="#quiz" data-i="navQuiz">Проверить знания</a></nav>
+ <div class="controls"><select id="lang" aria-label="Language"><option value="ru">RU</option><option value="kk">ҚАЗ</option><option value="en">EN</option></select></div>
+</header>
+<main>
+ <section class="hero">
+  <div><div class="eyebrow" data-i="eyebrow">История ближе, чем кажется</div>
+   <h1 data-i="heroTitle">Открой историю<br>Казахстана.</h1>
+   <p data-i="heroText">Путешествие через эпохи, государства и судьбы людей, которые формировали Великую степь. Изучай в своём темпе — на трёх языках.</p>
+   <div class="actions"><a class="btn primary" href="#topics" data-i="explore">Исследовать эпохи</a><a class="btn secondary" href="#quiz" data-i="test">Перейти к тестам</a></div>
+  </div>
+  <div class="art"><div class="compass">✧</div><div class="art-label">ҰЛЫ ДАЛА · THE GREAT STEPPE</div></div>
+ </section>
+ <section id="topics">
+  <div class="section-head"><div><div class="eyebrow" data-i="learning">Учебный маршрут</div><h2 data-i="topicsTitle">История по эпохам</h2></div><span data-i="topicsSub">Материалы твоего курса</span></div>
+  <div class="grid" id="cards"></div>
+ </section>
+ <section class="feature" id="quiz"><div><div class="eyebrow" data-i="practice">Практика</div><h2 data-i="quizTitle">Закрепляй знания</h2><p data-i="quizText">Тесты по темам помогут повторить материал и увидеть свой прогресс.</p></div><button class="btn primary" onclick="notify('quiz')" data-i="startQuiz">Скоро: пройти первый тест</button></section>
+ <section class="feature" id="about" style="margin-top:18px"><div><div class="eyebrow">TARIKH</div><h2 data-i="aboutTitle">Знания — доступны каждому</h2><p data-i="aboutText">Базовые учебные материалы останутся бесплатными. Проект развивается как образовательная платформа для всех, кто хочет лучше понимать историю Казахстана.</p></div></section>
+</main>
+<footer><span>© 2026 TARIKH</span><span data-i="footer">Образовательный проект об истории Казахстана</span></footer>
+<div id="notice" role="status"></div>
+<script>
+const translations={
+ru:{navTopics:"Разделы",navAbout:"О проекте",navQuiz:"Проверить знания",eyebrow:"История ближе, чем кажется",heroTitle:"Открой историю<br>Казахстана.",heroText:"Путешествие через эпохи, государства и судьбы людей, которые формировали Великую степь. Изучай в своём темпе — на трёх языках.",explore:"Исследовать эпохи",test:"Перейти к тестам",learning:"Учебный маршрут",topicsTitle:"История по эпохам",topicsSub:"Материалы твоего курса",practice:"Практика",quizTitle:"Закрепляй знания",quizText:"Тесты по темам помогут повторить материал и увидеть свой прогресс.",startQuiz:"Скоро: пройти первый тест",aboutTitle:"Знания — доступны каждому",aboutText:"Базовые учебные материалы останутся бесплатными. Проект развивается как образовательная платформа для всех, кто хочет лучше понимать историю Казахстана.",footer:"Образовательный проект об истории Казахстана",open:"Открыть раздел",notice:"Этот раздел будет наполнен материалами из твоих документов на следующем этапе."},
+kk:{navTopics:"Бөлімдер",navAbout:"Жоба туралы",navQuiz:"Біліміңді тексер",eyebrow:"Тарих — біз ойлағаннан жақын",heroTitle:"Қазақстан<br>тарихын аш.",heroText:"Ұлы даланың тарихын қалыптастырған дәуірлерге, мемлекеттерге және тұлғаларға саяхат. Үш тілде, өз қарқыныңмен үйрен.",explore:"Дәуірлерді зерттеу",test:"Тесттерге өту",learning:"Оқу бағыты",topicsTitle:"Дәуірлер бойынша тарих",topicsSub:"Курсыңның материалдары",practice:"Тәжірибе",quizTitle:"Біліміңді бекіт",quizText:"Тақырыптық тесттер материалды қайталап, жетістігіңді бақылауға көмектеседі.",startQuiz:"Жақында: алғашқы тест",aboutTitle:"Білім — баршаға қолжетімді",aboutText:"Негізгі оқу материалдары тегін болады. Жоба Қазақстан тарихын тереңірек түсінгісі келетіндерге арналған білім беру платформасы ретінде дамиды.",footer:"Қазақстан тарихы туралы білім беру жобасы",open:"Бөлімді ашу",notice:"Бұл бөлім келесі кезеңде құжаттарыңдағы материалдармен толықтырылады."},
+en:{navTopics:"Topics",navAbout:"About",navQuiz:"Test yourself",eyebrow:"History is closer than it seems",heroTitle:"Discover the<br>history of Kazakhstan.",heroText:"Travel through the eras, states and lives of the people who shaped the Great Steppe. Learn at your own pace in three languages.",explore:"Explore the eras",test:"Go to quizzes",learning:"Learning path",topicsTitle:"History by era",topicsSub:"Your course materials",practice:"Practice",quizTitle:"Strengthen your knowledge",quizText:"Topic-based quizzes will help you review the material and track your progress.",startQuiz:"Coming soon: first quiz",aboutTitle:"Knowledge for everyone",aboutText:"Core learning materials will remain free. TARIKH is being developed as an educational platform for everyone interested in understanding Kazakhstan's history.",footer:"An educational project about Kazakhstan's history",open:"Open section",notice:"This section will be filled with material from your documents in the next stage."}
+};
+const topics=[
+ {n:"01",ru:"Энеолит и эпоха бронзы",kk:"Энеолит және қола дәуірі",en:"Eneolithic & Bronze Age",desc:{ru:"Первые металлы, древние культуры и андроновцы.",kk:"Алғашқы металдар, ежелгі мәдениеттер және андрондықтар.",en:"Early metals, ancient cultures and the Andronovo people."}},
+ {n:"02",ru:"Железный век",kk:"Темір дәуірі",en:"Iron Age",desc:{ru:"Племена и культуры степи в эпоху железа.",kk:"Темір дәуіріндегі дала тайпалары мен мәдениеттері.",en:"Steppe tribes and cultures in the Iron Age."}},
+ {n:"03",ru:"Сарматы и гунны",kk:"Сарматтар мен ғұндар",en:"Sarmatians & Huns",desc:{ru:"Кочевые объединения и их место в истории степи.",kk:"Көшпелі бірлестіктер және олардың дала тарихындағы орны.",en:"Nomadic confederations and their place in steppe history."}},
+ {n:"04",ru:"Тюркские каганаты",kk:"Түрік қағанаттары",en:"Turkic Khaganates",desc:{ru:"Возникновение и развитие тюркских государств.",kk:"Түркі мемлекеттерінің құрылуы мен дамуы.",en:"The rise and development of Turkic states."}},
+ {n:"05",ru:"Найманы, кереиты, жалаиры",kk:"Наймандар, керейіттер, жалайырлар",en:"Naimans, Kereits & Jalairs",desc:{ru:"Средневековые племенные объединения.",kk:"Ортағасырлық тайпалық бірлестіктер.",en:"Medieval tribal confederations."}},
+ {n:"06",ru:"Монгольское нашествие",kk:"Моңғол шапқыншылығы",en:"Mongol Invasion",desc:{ru:"Монгольская экспансия и её последствия.",kk:"Моңғол жорықтары және оның салдары.",en:"Mongol expansion and its consequences."}},
+ {n:"07",ru:"Орды и улусы",kk:"Ордалap мен ұлыстар",en:"Hordes & Uluses",desc:{ru:"Золотая Орда, Ак Орда и другие государства.",kk:"Алтын Орда, Ақ Орда және басқа мемлекеттер.",en:"The Golden Horde, White Horde and other states."}},
+ {n:"08",ru:"Казахское ханство",kk:"Қазақ хандығы",en:"Kazakh Khanate",desc:{ru:"Этногенез и становление Казахского ханства.",kk:"Этногенез және Қазақ хандығының құрылуы.",en:"Ethnogenesis and the formation of the Kazakh Khanate."}},
+ {n:"09",ru:"Казахско-джунгарские войны",kk:"Қазақ-жоңғар соғыстары",en:"Kazakh–Dzungar Wars",desc:{ru:"Военное противостояние казахов и джунгар.",kk:"Қазақтар мен жоңғарлар арасындағы соғыс.",en:"The conflict between the Kazakhs and Dzungars."}},
+ {n:"10",ru:"Присоединение и реформы",kk:"Қосылу және реформалар",en:"Incorporation & Reforms",desc:{ru:"Крепости, административные преобразования и реформы.",kk:"Бекіністер, әкімшілік өзгерістер мен реформалар.",en:"Fortifications, administrative changes and reforms."}},
+ {n:"11",ru:"Национально-освободительные восстания",kk:"Ұлт-азаттық көтерілістер",en:"Liberation Uprisings",desc:{ru:"Крупные восстания и их исторический контекст.",kk:"Ірі көтерілістер және олардың тарихи контексті.",en:"Major uprisings and their historical context."}}
+];
+let lang="ru";
+function render(){const t=translations[lang];document.querySelectorAll("[data-i]").forEach(el=>{el.innerHTML=t[el.dataset.i]||""});document.getElementById("cards").innerHTML=topics.map(x=>`<article class="card"><div class="num">${x.n} / TARIKH</div><h3>${x[lang]}</h3><p>${x.desc[lang]}</p><button onclick="notify('section')">${t.open} →</button></article>`).join("");document.documentElement.lang=lang}
+function notify(k){const el=document.getElementById("notice");el.textContent=translations[lang][k==="quiz"?"startQuiz":"notice"];el.style.display="block";clearTimeout(window.nt);window.nt=setTimeout(()=>el.style.display="none",3200)}
+document.getElementById("lang").addEventListener("change",e=>{lang=e.target.value;render()});render();
+</script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {})); }</script>
+</body></html>
